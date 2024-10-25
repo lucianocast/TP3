@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"modelo","l":"ComponentType"},{"p":"modelo","l":"Directory"},{"p":"modelo","l":"File"},{"p":"modelo","l":"FileSystemComponent"}];updateSearchResults();
