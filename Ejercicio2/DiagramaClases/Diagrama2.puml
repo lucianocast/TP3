@@ -1,0 +1,38 @@
+@startuml gestor_archivos
+skinparam ClassAttributeIconSize 0
+enum ComponentType {
+    ARCHIVO
+    DIRECTORIO
+}
+
+class Directory {
+    -List<FileSystemComponent> componente
+    +Directory(String nombre): void
+    +addComponent(FileSystemComponent componente): void
+    +removeComponent(FileSystemComponent componente): void
+    +showDetails(): void
+}
+
+class File {
+    -Int tamaño
+    +File(String nombre, Int tamaño): void
+    +showDetails(): void
+}
+
+abstract class FileSystemComponent {
+    -String nombre
+    -ComponentType tipo
+    +FileSystemComponent(String nombre, ComponentType tipo): void
+    +getNombre(): String
+    +getTipo(): ComponentType
+    +showDetails(): void
+    +addComponent(FileSystemComponent componente): void
+    +removeComponent(FileSystemComponent componente): void
+}
+
+FileSystemComponent <|-- Directory
+FileSystemComponent <|-- File
+FileSystemComponent ..|> ComponentType
+Directory *-- FileSystemComponent
+
+@enduml

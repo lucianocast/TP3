@@ -1,0 +1,28 @@
+@startuml reproducor_musica
+skinparam classAttributeIconSize 0
+
+interface MusicPlayer {
+    +playSong(fileName: String)
+}
+
+class ThirdPartyAudioPlayer {
+    +startAudio(file: String)
+}
+
+class AudioPlayerAdapter {
+    -thirdPartyAudioPlayer: ThirdPartyAudioPlayer
+    +AudioPlayerAdapter(player: ThirdPartyAudioPlayer)
+    +playSong(fileName: String)
+}
+
+class MusicApp {
+    -player: MusicPlayer
+    +MusicApp(player: MusicPlayer)
+    +playMusic(fileName: String)
+}
+
+MusicPlayer <|.. AudioPlayerAdapter
+ThirdPartyAudioPlayer <.. AudioPlayerAdapter
+MusicPlayer <.. MusicApp
+
+@enduml

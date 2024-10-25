@@ -1,0 +1,52 @@
+@startuml gestor_archivos
+skinparam ClassAttributeIconSize 0
+
+abstract class Cake {
+    +makeCake(): void
+    +prepararIngredientes(): void
+    +decorar(): void
+    +hornear(): void
+    +empaquetar(): void
+}
+
+class chocolateCale{
+    +prepararIngredientes(): void
+    +decorar(): void
+}
+
+class vanillaCake{
+    +prepararIngredientes(): void
+    +decorar(): void
+}
+
+class CakeFactoryClient{
+}
+
+@startuml gestor_archivos
+skinparam ClassAttributeIconSize 0
+
+abstract class Cake {
+    +makeCake(): void
+    #prepararIngredientes(): void
+    #decorar(): void
+    #hornear(): void
+    #empaquetar(): void
+}
+
+class ChocolateCake {
+    +prepararIngredientes(): void
+    +decorar(): void
+}
+
+class VanillaCake {
+    +prepararIngredientes(): void
+    +decorar(): void
+}
+
+class CakeFactoryClient {
+}
+
+Cake <|-- ChocolateCake
+Cake <|-- VanillaCake
+CakeFactoryClient --> Cake
+@enduml
